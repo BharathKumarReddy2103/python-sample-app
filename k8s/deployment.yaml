@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-sample-app
+  labels:
+    app: python-sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-sample-app
+  template:
+    metadata:
+      labels:
+        app: python-sample-app
+    spec:
+      containers:
+        - name: flask-app
+          image: nbkumar2103/python-sample-app:latest
+          ports:
+            - containerPort: 5000
